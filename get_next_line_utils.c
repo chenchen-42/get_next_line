@@ -6,7 +6,7 @@
 /*   By: andmigue <andmigue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/20 19:32:19 by andmigue          #+#    #+#             */
-/*   Updated: 2026/06/25 18:35:01 by andmigue         ###   ########.fr       */
+/*   Updated: 2026/06/25 19:36:10 by andmigue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 size_t	get_size(const char *s)
 {
-	size_t	a;
+	size_t	i;
 
-	a = 0;
+	i = 0;
 	if (!s)
 		return (0);
-	while (s[a])
+	while (s[i])
 	{
-		if (s[a++] == '\n')
+		if (s[i++] == '\n')
 			break ;
 	}
-	return (a);
+	return (i);
 }
 
 int	if_new_line_exists(char *s)
@@ -42,18 +42,18 @@ int	if_new_line_exists(char *s)
 
 void	get_the_rest(char *buffer)
 {
-	size_t	a;
-	size_t	b;
+	size_t	i;
+	size_t	j;
 
-	a = 0;
-	b = 0;
-	while (buffer[a] && buffer[a] != '\n')
-		a++;
-	if (buffer[a] == '\n')
-		a++;
-	while (buffer[a])
-		buffer[b++] = buffer[a++];
-	buffer[b] = '\0';
+	i = 0;
+	j = 0;
+	while (buffer[i] && buffer[i] != '\n')
+		i++;
+	if (buffer[i] == '\n')
+		i++;
+	while (buffer[i])
+		buffer[j++] = buffer[i++];
+	buffer[j] = '\0';
 }
 
 char	*copy_to_line(char *line, char *buffer)
